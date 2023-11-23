@@ -1,4 +1,8 @@
-﻿using CarApp.DataAccess;
+﻿using CarApp.Business;
+using CarApp.Business.Entities;
+using CarApp.Business.Interfaces;
+using CarApp.DataAccess;
+using CarApp.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarApp.Startup
@@ -13,6 +17,9 @@ namespace CarApp.Startup
 
             builder.RegisterAppSettings();
             builder.ConfigureAppSettings();
+
+            builder.Services.AddScoped<CarHandler, CarHandler>();
+            builder.Services.AddScoped<IRepository<Car>, CarRepository>();
         }
 
         private static void ConfigureAppSettings(this WebApplicationBuilder builder)
