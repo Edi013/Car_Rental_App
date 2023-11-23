@@ -2,11 +2,8 @@ using CarApp.Startup;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-
+builder.RegisterServices();
 
 var app = builder.Build();
 
-builder.RegisterServices();
 app.ConfigureApp();

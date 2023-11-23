@@ -14,11 +14,13 @@ namespace CarApp.Startup
             builder.RegisterAppSettings();
             builder.ConfigureAppSettings();
         }
+
         private static void ConfigureAppSettings(this WebApplicationBuilder builder)
         {
             var connectionString = builder.Configuration.GetConnectionString("CarAppDb");
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
         }
+
         private static void RegisterAppSettings(this WebApplicationBuilder builder)
         {
             var configuration = new ConfigurationBuilder()
@@ -26,6 +28,8 @@ namespace CarApp.Startup
             .Build();
             builder.Services.AddSingleton(configuration);
         }
+
+
         public static void ConfigureApp(this WebApplication app)
         {
             // Configure the HTTP request pipeline.
