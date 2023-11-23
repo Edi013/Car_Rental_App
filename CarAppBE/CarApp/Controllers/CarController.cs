@@ -22,7 +22,7 @@ namespace CarApp.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public async Task<Car> GetById(long id)
+        public async Task<Car> GetById(int id)
         {
             return await handler.GetById(id);
         }

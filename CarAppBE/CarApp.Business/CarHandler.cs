@@ -17,7 +17,7 @@ namespace CarApp.Business
             return repository.GetAll();
         }
 
-        public async Task<Car> GetById(long id)
+        public async Task<Car> GetById(int id)
         {
             return await repository.GetById(id);
         }

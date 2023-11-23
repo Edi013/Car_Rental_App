@@ -32,7 +32,7 @@ namespace CarApp.DataAccess.Repositories
             return await context.Set<Car>().ToListAsync();
         }
 
-        public async Task<Car> GetById(long id)
+        public async Task<Car> GetById(int id)
         {
             return await context.Set<Car>().FindAsync(id);
         }
