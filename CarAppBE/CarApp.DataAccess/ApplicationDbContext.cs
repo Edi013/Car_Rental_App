@@ -8,6 +8,11 @@ namespace CarApp.DataAccess
         public DbSet<User> Users { get; set; }
         public DbSet<Car> Cars { get; set; }
 
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             ConfigureUser(modelBuilder);
@@ -18,7 +23,10 @@ namespace CarApp.DataAccess
 
         private void ConfigureUser(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasKey(x => x.Id);
+            modelBuilder.Entity<User>(entity => {
+                entity.HasKey(x => x.Id);
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            });
 
             modelBuilder.Entity<User>().Property(x => x.UserName).IsRequired();
             modelBuilder.Entity<User>().Property(x => x.UserName).HasMaxLength(100);
@@ -28,8 +36,10 @@ namespace CarApp.DataAccess
 
         private void ConfigureCar(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Car>().HasKey(x => x.Id);
-
+            modelBuilder.Entity<Car>(entity => {
+                entity.HasKey(x => x.Id);
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            });
             modelBuilder.Entity<Car>().Property(x => x.Brand).IsRequired();
             modelBuilder.Entity<Car>().Property(x => x.Model).IsRequired();
             modelBuilder.Entity<Car>().Property(x => x.Model).HasMaxLength(50);

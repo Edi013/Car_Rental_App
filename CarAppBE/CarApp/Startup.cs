@@ -1,4 +1,8 @@
-﻿using CarApp.DataAccess;
+﻿using CarApp.Business;
+using CarApp.Business.Entities;
+using CarApp.Business.Interfaces;
+using CarApp.DataAccess;
+using CarApp.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarApp.Startup
@@ -11,14 +15,28 @@ namespace CarApp.Startup
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.RegisterAppSettings();
             builder.ConfigureAppSettings();
 
+            builder.Services.AddScoped<CarHandler, CarHandler>();
+            builder.Services.AddScoped<IRepository<Car>, CarRepository>();
         }
+
         private static void ConfigureAppSettings(this WebApplicationBuilder builder)
         {
             var connectionString = builder.Configuration.GetConnectionString("CarAppDb");
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
         }
+
+        private static void RegisterAppSettings(this WebApplicationBuilder builder)
+        {
+            var configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .Build();
+            builder.Services.AddSingleton(configuration);
+        }
+
+
         public static void ConfigureApp(this WebApplication app)
         {
             // Configure the HTTP request pipeline.
