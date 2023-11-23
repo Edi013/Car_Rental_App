@@ -1,0 +1,48 @@
+﻿using CarApp.Business;
+using CarApp.Business.Entities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CarApp.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class CarController : Controller
+    {
+        private CarHandler handler;
+
+        public CarController(CarHandler handler)
+        {
+            this.handler = handler;
+        }
+
+        [HttpGet("GetAll")]
+        public async Task<IEnumerable<Car>> GetAll()
+        {
+            return await handler.GetAll();
+        }
+
+        [HttpGet("GetById/{id}")]
+        public async Task<Car> GetById(long id)
+        {
+            return await handler.GetById(id);
+        }
+
+        [HttpPost("Add")]
+        public async Task<Car> Add(Car entity)
+        {
+            return await handler.Add(entity);
+        }
+
+        [HttpPut("Update")]
+        public async Task<Car> Update(Car entity)
+        {
+            return await handler.Update(entity);
+        }
+
+        [HttpDelete("Delete")]
+        public async Task Delete(Car entity)
+        {
+            await handler.Delete(entity);
+        }
+    }
+}
