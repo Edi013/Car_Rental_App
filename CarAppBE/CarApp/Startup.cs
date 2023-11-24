@@ -20,6 +20,9 @@ namespace CarApp.Startup
 
             builder.Services.AddScoped<CarHandler, CarHandler>();
             builder.Services.AddScoped<IRepository<Car>, CarRepository>();
+            
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<UserHandler, UserHandler>();
         }
 
         private static void ConfigureAppSettings(this WebApplicationBuilder builder)
