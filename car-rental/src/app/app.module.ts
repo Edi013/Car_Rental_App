@@ -11,7 +11,7 @@ import { NgModule } from '@angular/core';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ViewCarsComponent } from './components/view-cars/view-cars.component';
 import { CarCardComponent } from './components/car-card/car-card.component';
-import { EditCarDetailsComponent } from './edit-car-details/edit-car-details.component';
+import { EditCarDetailsComponent } from './components/edit-car-details/edit-car-details.component';
 
 @NgModule({
   declarations: [
