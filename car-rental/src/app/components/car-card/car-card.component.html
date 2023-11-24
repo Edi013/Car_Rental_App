@@ -1,9 +1,15 @@
-<div class='dataRow'>
-    <img [src]="imageUrl" alt="Image not found">
-    <p>Brand: <span class="data">{{car.brand}}</span></p>
-    <p>Model: <span class="data">{{car.model}}</span></p>
-    <p>Type: <span class="data">{{car.type}}</span></p>
-    <p>Price: <span class="data">{{car.price}}</span></p>
+<div class='carContainer'>
+    <div class="dataColumn">
+        <img class="avatar" [src]="imageUrl" alt="Image not found">
+        <p>Brand: <span class="data">{{car.brand}}</span></p>
+        <p>Model: <span class="data">{{car.model}}</span></p>
+        <p>Type:  <span class="data">{{car.type}}</span></p>
+        <p>Price: <span class="data">{{car.price}} €</span></p>
+    </div>
+    <div class="buttonColumn">
+        <button><mat-icon>edit</mat-icon></button>
+        <button><mat-icon>delete</mat-icon></button>
+    </div>
 </div>
 <!--<div class='buttonRow'>
          <button mat-menu-item *ngIf="isProjectManager && businessTrip.status == pendingStatus" [routerLink]="['/review-business-trip', businessTrip.id]">
