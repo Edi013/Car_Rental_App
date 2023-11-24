@@ -26,6 +26,7 @@ export class AuthenticationService {
   async login(authenticationCredentials: LoginRequest): Promise<boolean> {
     let requestObservable = this.http.put<boolean>
       (`${this.apiUrl}/User/Login`, authenticationCredentials, this.httpOptions);
+      this.isUserAuthenticatedSubject.value;
       return await lastValueFrom(requestObservable);
   }
   
@@ -44,6 +45,7 @@ export class AuthenticationService {
 
     this.isUserAuthenticatedSubject.next(result);
   }
+  
   isLoggedIn(){
     return this.isUserAuthenticatedSubject.value
   }

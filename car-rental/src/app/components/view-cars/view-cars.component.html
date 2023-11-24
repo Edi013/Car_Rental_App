@@ -1,0 +1,8 @@
+<p>view-cars works!</p>
+<div class="parent">
+    <div *ngFor="let car of cars">
+        <car-card [car]="car"></car-card>
+    </div>
+    
+    <button (click)="getAllCars()">Refresh</button>
+</div>

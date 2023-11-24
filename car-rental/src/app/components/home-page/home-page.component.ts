@@ -31,4 +31,14 @@ export class HomePageComponent implements OnInit {
     this.router.navigate(['/view-cars']);
   }
 
+  navigateToHome(){
+    this.router.navigate([""])
+  }
+
+  logout(){
+    this.authService.logout();
+
+    this.router.navigate(["/home"]);
+  }
+
 }

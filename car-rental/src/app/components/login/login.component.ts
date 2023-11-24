@@ -35,16 +35,15 @@ export class LoginComponent implements OnInit {
     }
 
     try {
-      console.log("am intrat pe try")
       let loginResponse = await this.authenticationService.login(
         this.authenticationCredentials
       );
       this.authenticationService
         .setIsUserAuthenticated(loginResponse);
 
-      this.router.navigate(['']).then(()=>{
-        window.location.reload();
-      });
+      var result = this.authenticationService.isLoggedIn()
+
+      this.router.navigate(['']); 
     } catch {
       this.loginForm.controls['userName'];
       this.loginForm.controls['password'];

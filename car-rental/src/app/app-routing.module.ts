@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { ViewCarsComponent } from './components/view-cars/view-cars.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: WrapperComponent,
-    children: [
       { 
-        path: 'home', 
+        path: '', 
         component: HomePageComponent 
       },
       {
@@ -25,11 +21,9 @@ const routes: Routes = [
       },
       {
         path: 'view-cars',
-        component: HomePageComponent,
+        component: ViewCarsComponent,
         canActivate: [AuthenticationGuard]
       },
-    ],
-  },
 ];
 
 @NgModule({

@@ -18,7 +18,8 @@ namespace CarApp.Controllers
         [HttpGet("GetAll")]
         public async Task<IEnumerable<Car>> GetAll()
         {
-            return await handler.GetAll();
+            var result = await handler.GetAll();
+            return result;
         }
 
         [HttpGet("GetById/{id}")]
