@@ -7,17 +7,16 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   templateUrl: './car-card.component.html',
   styleUrls: ['./car-card.component.scss'],
 })
-export class CarCardComponent {
-  @Input() car: Car;
-  @Output() deleteRequest = new EventEmitter<number>();
+export class CarCardComponent implements OnInit{
+  @Input() car: Car 
   imageUrl: string
 
   constructor(private authenticationSerivce : AuthenticationService)
   {
-    this.imageUrl = 'assets/images/+'+ this.car.brand +'.jpg';
+  }
+  
+  ngOnInit(){
+    this.imageUrl = 'assets/images/' + this.car.brand + '.jpg';
   }
 
-  onDelete() {
-    // this.deleteRequest.emit(this.car.id);
-  }
 }

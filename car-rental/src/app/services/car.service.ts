@@ -16,11 +16,11 @@ export class CarService {
     const response = this.http.get<any>(
       `${this.apiUrl}/Car/GetAll`
     );
-    const result = await lastValueFrom(response);
-
-    const users: Car[] = result;
-    return users;
+    return await lastValueFrom(response);
   }
+    // const users: Car[] = result;
+    // return users;
+ 
 
   // async getProjectManagerByProjectId(projectId: number): Promise<ProjectManager[]>
   // {

@@ -3,7 +3,7 @@ import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
-  selector: 'app-view-cars',
+  selector: 'view-cars',
   templateUrl: './view-cars.component.html',
   styleUrls: ['./view-cars.component.scss']
 })
@@ -14,13 +14,13 @@ export class ViewCarsComponent implements OnInit {
   constructor(private carService: CarService) { 
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.cars = []
 
-    this.getAllCars();
+    await this.getAllCars();
   }
   
   async getAllCars(){
-    this.cars = await this.carService.getAllCars();
+    await this.carService.getAllCars().then(x => this.cars = x);
   }
 }
