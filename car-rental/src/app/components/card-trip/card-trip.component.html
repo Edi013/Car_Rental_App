@@ -1,0 +1,35 @@
+<mat-card class="business-trip-card">
+    <div class='buttonRow'>
+        <button mat-icon-button [matMenuTriggerFor]="menu"> <mat-icon>menu</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <!-- <button mat-menu-item *ngIf="isProjectManager && businessTrip.status == pendingStatus" [routerLink]="['/review-business-trip', businessTrip.id]">
+                <mat-icon>card_travel</mat-icon>
+                <span>Review</span>
+            </button>
+            <button mat-menu-item *ngIf="businessTrip.status != pendingStatus" [routerLink]="['/preview-business-trip', businessTrip.id]">
+                <mat-icon>preview</mat-icon>
+                <span>Details</span>
+            </button>
+            <button mat-menu-item *ngIf="!isProjectManager && businessTrip.status == pendingStatus" [routerLink]="['/edit-business-trip', businessTrip.id]">
+                <mat-icon>edit</mat-icon>
+                <span>Update</span>
+            </button>
+            <button mat-menu-item *ngIf="!isProjectManager && businessTrip.status == pendingStatus" (click)="onDelete()">
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+            </button> -->
+        </mat-menu>
+    </div>
+
+    <!-- <div class='dataRow'>
+        <p *ngIf="isProjectManager">
+            <span class="data"> User: {{businessTrip.lastName}} {{businessTrip.firstName}}</span>
+        </p>
+        <p>Leaving From: <span class="data">{{businessTrip.leavingFrom}}</span></p>
+        <p>Going To: <span class="data">{{businessTrip.goingTo}}</span></p>
+        <p>Project Name: <span class="data">{{businessTrip.projectName}}</span></p>
+        <p>Project Number: <span class="data">{{businessTrip.projectNumber}}</span></p>
+        <p>From Date: <span class="data">{{businessTrip.startDate | date: 'dd/MM/yyyy'}}</span></p>
+        <p>To Date: <span class="data">{{businessTrip.endDate | date: 'dd/MM/yyyy'}}</span></p>
+    </div> -->
+</mat-card>

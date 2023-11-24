@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CarApp.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/Api/[controller]")]
     public class CarController : Controller
     {
         private CarHandler handler;
