@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { LoginRequest } from 'src/app/models/login-request';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { lastValueFrom } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthenticationService {
 
   isUserAuthenticatedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private router: Router) { 
   }
 
   readonly httpOptions = {
@@ -44,6 +45,7 @@ export class AuthenticationService {
     var result =  await lastValueFrom(requestObservable);
 
     this.isUserAuthenticatedSubject.next(result);
+    this.router.navigate(['home']);
   }
   
   isLoggedIn(){
