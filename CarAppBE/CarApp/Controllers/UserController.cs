@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace CarApp.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class UserController : Controller
+    [Route("/Api/[controller]")]
+    public class UserController : ControllerBase
     {
         private UserHandler userHandler;
 

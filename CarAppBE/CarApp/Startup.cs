@@ -10,9 +10,13 @@ namespace CarApp.Startup
     public static class Startup
     {
         public static void RegisterServices(this WebApplicationBuilder builder)
+
         {
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
+
+            builder.ConfigureCors();
+
             builder.Services.AddSwaggerGen();
 
             builder.RegisterAppSettings();
@@ -39,6 +43,22 @@ namespace CarApp.Startup
             builder.Services.AddSingleton(configuration);
         }
 
+        private static void ConfigureCors(this WebApplicationBuilder builder)
+        {
+            var frontendAppUrl = builder.Configuration.GetSection("FrontendApp:Url");
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: "CorsPolicy",
+                                          policy =>
+                                          {
+                                              policy.WithOrigins(frontendAppUrl.Value)
+                                              .AllowAnyHeader()
+                                              .AllowAnyMethod()
+                                              .AllowCredentials();
+                                          });
+            });
+        }
 
         public static void ConfigureApp(this WebApplication app)
         {
@@ -50,11 +70,9 @@ namespace CarApp.Startup
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors("CorsPolicy");
             app.UseAuthorization();
-
             app.MapControllers();
-
             app.Run();
         }
     }
