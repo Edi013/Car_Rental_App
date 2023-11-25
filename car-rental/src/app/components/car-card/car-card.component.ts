@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { CarService } from 'src/app/services/car.service';
 
 @Component({
   selector: 'car-card',
@@ -10,16 +11,23 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class CarCardComponent implements OnInit{
   @Input() car: Car 
+  @Output() onDelete = new EventEmitter<Car>();
   imageUrl: string
 
   constructor(
     private authenticationSerivce : AuthenticationService,
+    private carService : CarService,
     private router : Router)
   {
   }
   
   ngOnInit(){
     this.imageUrl = 'assets/images/' + this.car.brand + '.jpg';
+  }
+
+  deleteCar(){
+    this.carService.deleteCar(this.car);
+    this.onDelete.emit(this.car);
   }
 
   navigateToEdit(){

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CarService } from 'src/app/services/car.service';
@@ -16,7 +16,8 @@ export class ViewCarsComponent implements OnInit {
   constructor(
     private carService: CarService,
     private authenticationService: AuthenticationService,
-    private router: Router) { 
+    private router: Router,
+    private changes: ChangeDetectorRef) { 
   }
 
   async ngOnInit(): Promise<void> {
@@ -24,9 +25,10 @@ export class ViewCarsComponent implements OnInit {
 
     await this.getAllCars();
   }
-  
   async getAllCars(){
-    await this.carService.getAllCars().then(x => this.cars = x);
+    var result = await this.carService.getAllCars()//.then(x => this.cars = x);
+    this.cars = result
+    this.changes.detectChanges();
   }
 
   navigateToCreateCar(){
@@ -35,5 +37,9 @@ export class ViewCarsComponent implements OnInit {
 
   logout(){
     this.authenticationService.logout();
+  }
+
+  onCardDelete(selectedCar: Car){
+    this.cars = this.cars.filter(car => car.id !== selectedCar.id)
   }
 }

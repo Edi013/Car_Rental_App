@@ -27,8 +27,10 @@ namespace CarApp.Business
             return await repository.Add(entity);
         }
 
-        public async Task Delete(Car entity)
+        public async Task Delete(int id)
         {
+            var entity = await repository.GetById(id);
+
             await repository.Delete(entity);
         }
 

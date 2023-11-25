@@ -40,18 +40,10 @@ export class EditCarDetailsComponent implements OnInit {
       type:  [this.car.type, Validators.required],
       price: [this.car.price, Validators.required],
     });
-
-    var result = this.car;
-    console.log(result);
   }
 
   updateCar(){
     this.carService.updateCar(this.car);
-
-    this.router.navigate(['view-cars']);
-  }
-  createCar(){
-    this.carService.createCar(this.car);
 
     this.router.navigate(['view-cars']);
   }

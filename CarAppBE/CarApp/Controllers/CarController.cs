@@ -40,10 +40,10 @@ namespace CarApp.Controllers
             return await handler.Update(entity);
         }
 
-        [HttpDelete("Delete")]
-        public async Task Delete(Car entity)
+        [HttpDelete("Delete/{id}")]
+        public async Task Delete(int id)
         {
-            await handler.Delete(entity);
+            await handler.Delete(id);
         }
     }
 }
