@@ -48,9 +48,15 @@ p{
     justify-content: end;
     flex-direction: row;
     padding-right: 1vh;
-    max-height: 50px;
-    max-width: 50px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    min-height: 3.5vh;
+    min-width: 3.5vh;
+    max-height: 4.8vh;
+    max-width: 4.8vh;
 }
 .dataColumn{
     padding-left: 1vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }

@@ -12,6 +12,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { ViewCarsComponent } from './components/view-cars/view-cars.component';
 import { CarCardComponent } from './components/car-card/car-card.component';
 import { EditCarDetailsComponent } from './components/edit-car-details/edit-car-details.component';
+import { CreateCarComponent } from './components/create-car/create-car.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { EditCarDetailsComponent } from './components/edit-car-details/edit-car-
     HomePageComponent,
     ViewCarsComponent,
     EditCarDetailsComponent,
+    CreateCarComponent,
   ],
   imports: [
     AppRoutingModule,

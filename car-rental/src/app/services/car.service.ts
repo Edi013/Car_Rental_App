@@ -29,6 +29,13 @@ export class CarService {
     );
     return await lastValueFrom(response);
   }
+
+  async createCar(car: Car): Promise<Car>{
+    const response = this.http.post<Car>(
+      `${this.apiUrl}/Car/Update`, car, this.httpOptions
+    );
+    return await lastValueFrom(response);
+  }
     // const users: Car[] = result;
     // return users;
  

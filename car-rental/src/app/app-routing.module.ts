@@ -4,6 +4,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ViewCarsComponent } from './components/view-cars/view-cars.component';
+import { EditCarDetailsComponent } from './components/edit-car-details/edit-car-details.component';
+import { CreateCarComponent } from './components/create-car/create-car.component';
 
 const routes: Routes = [
       { 
@@ -15,15 +17,20 @@ const routes: Routes = [
         component: LoginComponent,
       },
       {
-        path: 'edit-car/:id',
-        component: HomePageComponent,
+        path: 'edit-car',
+        component: EditCarDetailsComponent,
         canActivate: [AuthenticationGuard],
       },
       {
         path: 'view-cars',
         component: ViewCarsComponent,
-        canActivate: [AuthenticationGuard]
+        canActivate: [AuthenticationGuard],
       },
+      {
+        path: 'create-car',
+        component: CreateCarComponent,
+        canActivate: [AuthenticationGuard],
+      }
 ];
 
 @NgModule({

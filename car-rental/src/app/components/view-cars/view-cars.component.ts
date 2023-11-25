@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CarService } from 'src/app/services/car.service';
@@ -14,7 +15,8 @@ export class ViewCarsComponent implements OnInit {
 
   constructor(
     private carService: CarService,
-    private authenticationService: AuthenticationService) { 
+    private authenticationService: AuthenticationService,
+    private router: Router) { 
   }
 
   async ngOnInit(): Promise<void> {
@@ -25,6 +27,10 @@ export class ViewCarsComponent implements OnInit {
   
   async getAllCars(){
     await this.carService.getAllCars().then(x => this.cars = x);
+  }
+
+  navigateToCreateCar(){
+    this.router.navigate(['create-car']);
   }
 
   logout(){
