@@ -23,7 +23,7 @@ $theme: mat-light-theme(
 // Apply the custom theme to Angular Material components
 @include angular-material-theme($theme);
 
-$card-background-color: rgb(255, 255, 255, 0.8);
+$card-background-color: rgba(178, 177, 177, 0.4);
 $blue-color: #673ab7;
 $white-color: white;
 $black-color: black;

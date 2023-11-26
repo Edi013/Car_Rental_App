@@ -20,7 +20,7 @@ export class HomePageComponent implements OnInit {
   }
 
   navigateToLogIn() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
   }
 
   navigateToViewCars() {
@@ -28,7 +28,7 @@ export class HomePageComponent implements OnInit {
       prompt("Log in first.")
       return;
     }
-    this.router.navigate(['/view-cars']);
+    this.router.navigate(['view-cars']);
   }
 
   navigateToHome(){
@@ -38,7 +38,7 @@ export class HomePageComponent implements OnInit {
   logout(){
     this.authService.logout();
 
-    this.router.navigate(["/home"]);
+    this.navigateToHome()
   }
 
 }

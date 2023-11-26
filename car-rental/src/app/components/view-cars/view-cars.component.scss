@@ -54,7 +54,8 @@
     grid-template-columns: repeat(5, auto);
     grid-gap: 1.2em;
     overflow-y: scroll;
-    height:45vh;
+    height: 100%;//45vh;
+    width: 100%;
 }
 
 .buttonRow{

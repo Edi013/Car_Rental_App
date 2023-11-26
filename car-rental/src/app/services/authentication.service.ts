@@ -45,7 +45,7 @@ export class AuthenticationService {
     var result =  await lastValueFrom(requestObservable);
 
     this.isUserAuthenticatedSubject.next(result);
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
   
   isLoggedIn(){
