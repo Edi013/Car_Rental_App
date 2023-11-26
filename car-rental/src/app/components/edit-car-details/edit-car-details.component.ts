@@ -48,6 +48,10 @@ export class EditCarDetailsComponent implements OnInit {
     this.router.navigate(['view-cars']);
   }
 
+  navigateToViewCars(){
+    this.router.navigate(['view-cars']);
+  }
+
   getBrandErrorMessage() {
     let brandControl = this.editForm.controls['brand'];
     return brandControl.value == "" ?

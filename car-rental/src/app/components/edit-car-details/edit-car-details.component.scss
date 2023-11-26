@@ -18,6 +18,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background: $card-background-color;
 }
+.buttonColumn{
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
 
 .background {
   background-size: cover;

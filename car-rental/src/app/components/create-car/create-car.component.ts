@@ -41,6 +41,10 @@ export class CreateCarComponent implements OnInit {
     this.router.navigate(['view-cars']);
   }
 
+  navigateToViewCars(){
+    this.router.navigate(['view-cars']);
+  }
+
   getBrandErrorMessage() {
     let brandControl = this.createForm.controls['brand'];
     return brandControl.value == "" ?

@@ -48,7 +48,9 @@ export class LoginComponent implements OnInit {
       return;
     }
   }
-
+  navigateToHome(){
+    this.router.navigate(['']);
+  }
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
