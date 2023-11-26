@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Car } from 'src/app/models/car';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class CarCardComponent implements OnInit{
   imageUrl: string
 
   constructor(
-    private authenticationSerivce : AuthenticationService,
     private carService : CarService,
     private router : Router)
   {
