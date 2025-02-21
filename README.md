@@ -1,4 +1,6 @@
-Short University project
+# Short University project
 
-.NET Backend
+.NET RESTFull API Backend
+
+
 Angular Frontend
